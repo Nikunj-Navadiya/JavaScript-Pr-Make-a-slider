@@ -1,0 +1,161 @@
+<center>
+    <h1>List Of Workers</h1>
+    <table border="5" cellpadding="5" cellspacing="5" bgcolor="#D8E8E6">
+        <tr>
+            <td>SR Number</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>City</td>
+            <td>Designation</td>
+            <td>Department</td>
+            <td>Salary</td>
+
+        </tr>
+        <tbody id="record">
+        </tbody>
+    </table>
+</center>
+
+<script type="text/javascript">
+
+let record = [
+        {
+            id : 1,
+            name : "Naitik",
+            email : "naitik@gmail.com",
+            phone : "8460361497",
+            city : "Pune",
+            degi : "Lead (TL)",
+            dep : "Full Stack Development",
+            salary : 125000
+        },
+        {
+            id : 2,
+            name : "Nikunj",
+            email : "nikunj@gmail.com",
+            phone : "9876543210",
+            city : "Surat",
+            degi : "Software Engineer",
+            dep : "Advance in Python",
+            salary : 55000
+        },
+        {
+            id : 3,
+            name : "Smit",
+            email : "smit@gmail.com",
+            phone : "8765412390",
+            city : "Vadodara",
+            degi : "Senior Software Engineer,",
+            dep : "Programming",
+            salary : 67000
+        },
+        {
+            id : 4,
+            name : "Tapu",
+            email : "tapu@gmail.com",
+            phone : "9632587410",
+            city : "Rajkot",
+            degi : "IT analyst",
+            dep : "Webdesign",
+            salary : 39000
+        },
+        {
+            id : 5,
+            name : "Gogi",
+            email : "gogi@gmail.com",
+            phone : "9874563210",
+            city : "Ahmedabad",
+            degi : "Business Analyst",
+            dep : "Ui/Ux",
+            salary : 50000
+        },
+        {
+            id : 6,
+            name : "Goli",
+            email : "goli@gmail.com",
+            phone : "8000365303",
+            city : "Vadodara",
+            degi : "Senior Software Engineer,",
+            dep : "Programming",
+            salary : 60000
+        },
+        {
+            id : 7,
+            name : "Pinku",
+            email : "pinku@gmail.com",
+            phone : "6325147890",
+            city : "Rajkot",
+            degi : "IT analyst",
+            dep : "Webdesign",
+            salary : 30000
+        },
+        {
+            id : 8,
+            name : "Sapna",
+            email : "sapna@gmail.com",
+            phone : "7854123069",
+            city : "Pune",
+            degi : "Lead (TL)",
+            dep : "Full Stack Development",
+            salary : 90000
+        },
+        {
+            id : 9,
+            name : "Ravi",
+            email : "ravi@gmail.com",
+            phone : "8462951730",
+            city : "Ahmedabad",
+            degi : "Business Analyst",
+            dep : "Ui/Ux",
+            salary : 34000
+        },
+        {
+            id : 10,
+            name : "Ajay",
+            email : "ajay@gmail.com",
+            phone : "9325146870",
+            city : "Surat",
+            degi : "Software Engineer",
+            dep : "Advance in Python",
+            salary : 45000
+        }
+   ]
+
+var table = "";
+var filters = record.filter((val)=>{
+     sum = sum + val.salary;
+    return (val.city == "Pune") && (val.degi == "Lead (TL)") && (val.dep == "Full Stack Development") && (val.salary > 50000)
+});
+var s=0;
+var sum = filters.filter((val)=>{
+    s = s + val.salary;
+})
+filters.map((val)=>{
+    return (
+        table += `
+        <tr>
+                    <td>${val.id}</td>
+                    <td>${val.name}</td>
+                    <td>${val.email}</td>
+                    <td>${val.phone}</td>
+                    <td>${val.city}</td>
+                    <td>${val.degi}</td>
+                    <td>${val.dep}</td>
+                    <td>${val.salary}</td>
+                </tr>
+         `
+    )
+})
+
+table += `
+        <tr>
+            <td colspan = "7"> Total Salary :- </td>
+            <td>${s}</td>
+        </tr>
+
+     `
+    document.getElementById('record').innerHTML = table ;
+    document.getElementById('sum').innerHTML = s ;
+    
+</script>
